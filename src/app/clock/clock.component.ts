@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../base.component';
-import { DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { LogService } from '../log.service';
+import { interval, map } from 'rxjs';
 
 @Component({
   selector: 'app-clock',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, AsyncPipe],
   templateUrl: './clock.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './clock.component.scss',
@@ -15,12 +16,12 @@ import { LogService } from '../log.service';
   },
 })
 export class ClockComponent extends BaseComponent {
-  time = new Date();
-
+  // now = new Date();
+  now$ = interval(1000).pipe(map((_) => new Date()));
   constructor(logService: LogService) {
     super(logService);
-    setInterval(() => {
-      this.time = new Date();
-    }, 1000);
+    // setInterval(() => {
+    //   this.now = new Date();
+    // }, 1000);
   }
 }

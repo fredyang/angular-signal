@@ -1,3 +1,4 @@
 {{ logCd() }}
 
-<p>{{ time | date : "mediumTime" }}</p>
+<p>{{ now$ | async | date : "mediumTime" }}</p>
+<!-- <p>{{ now | date : "mediumTime" }}</p> -->
