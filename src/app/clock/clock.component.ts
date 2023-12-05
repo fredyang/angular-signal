@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { LogService } from '../log.service';
@@ -16,12 +16,13 @@ import { interval, map } from 'rxjs';
   },
 })
 export class ClockComponent extends BaseComponent {
-  // now = new Date();
-  now$ = interval(1000).pipe(map((_) => new Date()));
+  now = signal(new Date());
+
+  // now$ = interval(1000).pipe(map((_) => new Date()));
   constructor(logService: LogService) {
     super(logService);
-    // setInterval(() => {
-    //   this.now = new Date();
-    // }, 1000);
+    setInterval(() => {
+      this.now.set(new Date());
+    }, 1000);
   }
 }
