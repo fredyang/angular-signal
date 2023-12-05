@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { LogService } from '../log.service';
 
@@ -8,6 +8,7 @@ import { LogService } from '../log.service';
   imports: [],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'box',
   },
@@ -15,5 +16,11 @@ import { LogService } from '../log.service';
 export class CounterComponent extends BaseComponent {
   constructor(logService: LogService) {
     super(logService);
+  }
+
+  count = 0;
+
+  increment() {
+    this.count = this.count + 1;
   }
 }

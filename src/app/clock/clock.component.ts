@@ -8,7 +8,7 @@ import { LogService } from '../log.service';
   standalone: true,
   imports: [DatePipe],
   templateUrl: './clock.component.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './clock.component.scss',
   host: {
     class: 'box',
