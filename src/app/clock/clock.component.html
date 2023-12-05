@@ -1,6 +1,8 @@
 {{ logCd() }}
 
-<p>Time: {{ now | date : "mediumTime" }}</p>
+<p class="title">time component</p>
+<p>
+  Time: {{ now | date : "mediumTime" }}
 
-<button (click)="update()">Update</button>
-<!-- <p>{{ now | date : "mediumTime" }}</p> -->
+  <button (click)="update()">Update</button>
+</p>

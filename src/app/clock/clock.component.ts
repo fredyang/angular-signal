@@ -26,7 +26,10 @@ export class ClockComponent extends BaseComponent {
   update() {
     setTimeout(() => {
       this.now = new Date();
-      console.log(this.date.transform(this.now, 'mediumTime'));
-    }, 1000);
+      console.log(
+        'time is updated to ',
+        this.date.transform(this.now, 'mediumTime')
+      );
+    }, 2000);
   }
 }

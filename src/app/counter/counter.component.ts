@@ -8,7 +8,7 @@ import { LogService } from '../log.service';
   imports: [],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'box',
   },
@@ -18,9 +18,9 @@ export class CounterComponent extends BaseComponent {
     super(logService);
   }
 
-  count = 0;
+  counter = 0;
 
   increment() {
-    this.count = this.count + 1;
+    this.counter = this.counter + 1;
   }
 }
