@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClockComponent } from './time/time.component';
+import { TimeComponent } from './time/time.component';
 import { BaseComponent } from './base.component';
 import { CounterComponent } from './counter/counter.component';
 import { LogService } from './log.service';
@@ -8,7 +8,7 @@ import { LogService } from './log.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, ClockComponent, CounterComponent],
+  imports: [CommonModule, TimeComponent, CounterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   // changeDetection: ChangeDetectionStrategy.OnPush,

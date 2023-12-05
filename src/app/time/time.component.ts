@@ -16,7 +16,7 @@ import { interval, map } from 'rxjs';
     class: 'box',
   },
 })
-export class ClockComponent extends BaseComponent {
+export class TimeComponent extends BaseComponent {
   now = new Date();
 
   constructor(logService: LogService, private date: DatePipe) {
