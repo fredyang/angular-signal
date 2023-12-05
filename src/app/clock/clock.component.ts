@@ -8,21 +8,25 @@ import { interval, map } from 'rxjs';
   selector: 'app-clock',
   standalone: true,
   imports: [DatePipe, AsyncPipe],
+  providers: [DatePipe],
   templateUrl: './clock.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './clock.component.scss',
   host: {
     class: 'box',
   },
 })
 export class ClockComponent extends BaseComponent {
-  now = signal(new Date());
+  now = new Date();
 
-  // now$ = interval(1000).pipe(map((_) => new Date()));
-  constructor(logService: LogService) {
+  constructor(logService: LogService, private date: DatePipe) {
     super(logService);
-    setInterval(() => {
-      this.now.set(new Date());
+  }
+
+  update() {
+    setTimeout(() => {
+      this.now = new Date();
+      console.log(this.date.transform(this.now, 'mediumTime'));
     }, 1000);
   }
 }
