@@ -9,9 +9,9 @@ import { interval, map } from 'rxjs';
   standalone: true,
   imports: [DatePipe, AsyncPipe],
   providers: [DatePipe],
-  templateUrl: './clock.component.html',
+  templateUrl: './time.component.html',
   // changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './clock.component.scss',
+  styleUrl: './time.component.scss',
   host: {
     class: 'box',
   },
