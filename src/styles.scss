@@ -11,3 +11,10 @@
   border-bottom: 1px solid seagreen;
   display: inline-block;
 }
+
+.row {
+  display: flex;
+  > * {
+    flex-grow: 1;
+  }
+}
