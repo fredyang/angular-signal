@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { LogService } from '../log.service';
 import { DatePipe } from '@angular/common';
@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe],
   templateUrl: './sync.component.html',
   styleUrl: './sync.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'box',
   },

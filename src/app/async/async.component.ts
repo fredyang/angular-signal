@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { LogService } from '../log.service';
@@ -10,6 +10,7 @@ import { LogService } from '../log.service';
   providers: [DatePipe],
   templateUrl: './async.component.html',
   styleUrl: './async.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'box',
   },
