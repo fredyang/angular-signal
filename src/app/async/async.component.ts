@@ -24,7 +24,7 @@ export class AsyncComponent extends BaseComponent {
   updateTime() {
     this.time = new Date();
     console.log(
-      'time is updated to ',
+      'async time is updated to ',
       this.date.transform(this.time, 'mediumTime')
     );
   }

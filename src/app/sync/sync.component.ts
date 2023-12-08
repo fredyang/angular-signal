@@ -24,7 +24,7 @@ export class SyncComponent extends BaseComponent {
   updateTime() {
     this.time = new Date();
     console.log(
-      'time is updated to ',
+      'sync time is updated to ',
       this.date.transform(this.time, 'mediumTime')
     );
   }
