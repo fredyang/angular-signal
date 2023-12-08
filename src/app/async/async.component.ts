@@ -15,11 +15,11 @@ import { LogService } from '../log.service';
   },
 })
 export class AsyncComponent extends BaseComponent {
-  time = new Date();
-
   constructor(logService: LogService, private date: DatePipe) {
     super(logService);
   }
+
+  time = new Date();
 
   updateTime() {
     this.time = new Date();
@@ -28,6 +28,7 @@ export class AsyncComponent extends BaseComponent {
       this.date.transform(this.time, 'mediumTime')
     );
   }
+
   update() {
     setTimeout(() => this.updateTime(), 2000);
   }
