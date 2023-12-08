@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TimeComponent } from './time/time.component';
+import { AsyncComponent } from './async/async.component';
 import { BaseComponent } from './base.component';
-import { CounterComponent } from './counter/counter.component';
+import { SyncComponent } from './sync/sync.component';
 import { LogService } from './log.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, TimeComponent, CounterComponent],
+  imports: [CommonModule, AsyncComponent, SyncComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   // changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimeComponent } from './time.component';
+import { SyncComponent } from './sync.component';
 
-describe('ClockComponent', () => {
-  let component: TimeComponent;
-  let fixture: ComponentFixture<TimeComponent>;
+describe('CounterComponent', () => {
+  let component: SyncComponent;
+  let fixture: ComponentFixture<SyncComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TimeComponent],
+      imports: [SyncComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TimeComponent);
+    fixture = TestBed.createComponent(SyncComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
