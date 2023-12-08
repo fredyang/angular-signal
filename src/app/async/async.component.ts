@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { LogService } from '../log.service';
@@ -16,7 +20,11 @@ import { LogService } from '../log.service';
   },
 })
 export class AsyncComponent extends BaseComponent {
-  constructor(logService: LogService, private date: DatePipe) {
+  constructor(
+    logService: LogService,
+    private date: DatePipe,
+    private cd: ChangeDetectorRef
+  ) {
     super(logService);
   }
 
@@ -28,6 +36,7 @@ export class AsyncComponent extends BaseComponent {
       'async time is updated to ',
       this.date.transform(this.time, 'mediumTime')
     );
+    this.cd.markForCheck();
   }
 
   update() {
