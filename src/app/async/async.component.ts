@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { LogService } from '../log.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-async',
@@ -20,13 +21,15 @@ export class AsyncComponent extends BaseComponent {
     super(logService);
   }
 
-  time = new Date();
+  private subject = new BehaviorSubject(new Date());
+  time$ = this.subject.asObservable();
 
   updateTime() {
-    this.time = new Date();
+    const time = new Date();
+    this.subject.next(time);
     console.log(
       'async time is updated to ',
-      this.date.transform(this.time, 'mediumTime')
+      this.date.transform(time, 'mediumTime')
     );
   }
 

@@ -2,6 +2,6 @@
 
 <p class="title">async component</p>
 <p>
-  Time: {{ time | date : "mediumTime" }}
+  Time: {{ time$ | async | date : "mediumTime" }}
   <button (click)="update()">Update</button>
 </p>
