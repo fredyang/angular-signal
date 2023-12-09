@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { LogService } from '../log.service';
@@ -20,13 +20,13 @@ export class AsyncComponent extends BaseComponent {
     super(logService);
   }
 
-  time = new Date();
+  time = signal(new Date());
 
   updateTime() {
-    this.time = new Date();
+    this.time.set(new Date());
     console.log(
       'async time is updated to ',
-      this.date.transform(this.time, 'mediumTime')
+      this.date.transform(this.time(), 'mediumTime')
     );
   }
 
